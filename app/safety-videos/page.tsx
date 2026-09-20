@@ -54,8 +54,6 @@ export default async function SafetyVideosPage() {
     ),
   ];
 
-  const categories = page?.categories ?? [];
-
   return (
     <>
       <JsonLd data={schemas} />
@@ -98,23 +96,6 @@ export default async function SafetyVideosPage() {
             description="A selection from our library of workplace safety training content."
             className="mb-10"
           />
-
-          {/* Categories — decorative only, no taxonomy behind these yet */}
-          <div className="flex flex-wrap gap-2 mb-10" role="group" aria-label="Video categories">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
-                  cat === "All"
-                    ? "bg-[#E8521A] text-white border-[#E8521A]"
-                    : "bg-white text-gray-600 border-gray-200 hover:border-[#E8521A] hover:text-[#E8521A]"
-                }`}
-                aria-pressed={cat === "All"}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {videos.map((video, index) => (
